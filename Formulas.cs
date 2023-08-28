@@ -25,12 +25,7 @@ namespace AstroMath
         /// <returns>A double which represents the velocity.</returns>
         public double StarVelocity(double observedWavelength, double restWavelength)
         {
-            if (restWavelength != 0)
-            {
-                double velocity = 299792458 * (observedWavelength - restWavelength) / restWavelength;
-                return Math.Round(velocity, 4);
-            }
-            else { return 0.00001; }
+            return 299792458 * (observedWavelength - restWavelength) / restWavelength;
         }
         /// <summary>
         /// The method is used for measuring the star distance using the parallax angle.
@@ -39,11 +34,7 @@ namespace AstroMath
         /// <returns>A double which is a value in parsecs.</returns>
         public double StarDistance(double arcsecondsAngle)
         {
-            if (arcsecondsAngle != 0)
-            {
-                return Math.Round(1 / arcsecondsAngle, 4);
-            }
-            else { return 0.00001; }
+            return 1 / arcsecondsAngle;
         }
         /// <summary>
         /// The method is used for converting temperature from celsius to kevine.
@@ -52,11 +43,7 @@ namespace AstroMath
         /// <returns>A double which is the temperature in degrees kelvin.</returns>
         public double TemperatureConversion(double celsius)
         {
-            if (celsius > -273)
-            {
-                return celsius + 273;
-            }
-            else { return 0.00001; }
+            return celsius + 273;
         }
         /// <summary>
         /// The method is used for measuring the distance from the centre of a blackhole to the event horizon..
@@ -69,13 +56,7 @@ namespace AstroMath
             const double SpeedOfLight = 299792458.0;   // m/s
             double blackHoleMass = massBase * Math.Pow(10, massExponent);
 
-            if (Math.Pow(SpeedOfLight, 2) != 0)
-            {
-                // Calculate the Schwarzschild radius (R) in meters
-                double schwarzschildRadius = (2.0 * GravityConstant * blackHoleMass) / Math.Pow(SpeedOfLight, 2);
-                return Math.Round(schwarzschildRadius, 4);
-            }
-            else { return 0.00001; }
+            return (2.0 * GravityConstant * blackHoleMass) / Math.Pow(SpeedOfLight, 2);
         }
     }
 }
