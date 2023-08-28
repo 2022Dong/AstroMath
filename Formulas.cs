@@ -50,11 +50,10 @@ namespace AstroMath
         /// ID string generated is "M:AstroMath.Formulas.StarVelocit(System.Double)".
         /// <param name="blackHoleMass">A input parameters of type double (Blackhole Mass).</param>
         /// <returns>A double which is the event horizon in metres (Schwarzschild radius (R)).</returns>
-        public double BlackholeEventHorizon(double massBase, double massExponent)
+        public double BlackholeEventHorizon(double blackHoleMass)
         {
             const double GravityConstant = 6.674e-11;  // m^3 kg^-1 s^-2
             const double SpeedOfLight = 299792458.0;   // m/s
-            double blackHoleMass = massBase * Math.Pow(10, massExponent);
 
             return (2.0 * GravityConstant * blackHoleMass) / Math.Pow(SpeedOfLight, 2);
         }
