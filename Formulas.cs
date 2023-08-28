@@ -30,7 +30,7 @@ namespace AstroMath
                 double velocity = 299792458 * (observedWavelength - restWavelength) / restWavelength;
                 return Math.Round(velocity, 4);
             }
-            else { return 0; }
+            else { return 0.00001; }
         }
         /// <summary>
         /// The method is used for measuring the star distance using the parallax angle.
@@ -43,7 +43,7 @@ namespace AstroMath
             {
                 return Math.Round(1 / arcsecondsAngle, 4);
             }
-            else { return 0; }
+            else { return 0.00001; }
         }
         /// <summary>
         /// The method is used for converting temperature from celsius to kevine.
@@ -56,17 +56,18 @@ namespace AstroMath
             {
                 return celsius + 273;
             }
-            else { return 0; }
+            else { return 0.00001; }
         }
         /// <summary>
         /// The method is used for measuring the distance from the centre of a blackhole to the event horizon..
         /// ID string generated is "M:AstroMath.Formulas.StarVelocit(System.Double)".
         /// <param name="blackHoleMass">A input parameters of type double (Blackhole Mass).</param>
         /// <returns>A double which is the event horizon in metres (Schwarzschild radius (R)).</returns>
-        public double BlackholeEventHorizon(double blackHoleMass)
+        public double BlackholeEventHorizon(double massBase, double massExponent)
         {
             const double GravityConstant = 6.674e-11;  // m^3 kg^-1 s^-2
             const double SpeedOfLight = 299792458.0;   // m/s
+            double blackHoleMass = massBase * Math.Pow(10, massExponent);
 
             if (Math.Pow(SpeedOfLight, 2) != 0)
             {
@@ -74,7 +75,7 @@ namespace AstroMath
                 double schwarzschildRadius = (2.0 * GravityConstant * blackHoleMass) / Math.Pow(SpeedOfLight, 2);
                 return Math.Round(schwarzschildRadius, 4);
             }
-            else { return 0; }
+            else { return 0.00001; }
         }
     }
 }
